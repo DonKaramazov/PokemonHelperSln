@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\PokemonViewModel.cs" />
+    <Compile Include="Views\TypesPage.xaml.cs">
+      <DependentUpon>TypesPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,10 +66,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\Converters.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RD_POKE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TypesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -92,6 +105,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\fire.png" />
+    <Resource Include="Resources\Icons\type_acier.png" />
+    <Resource Include="Resources\Icons\type_combat.png" />
+    <Resource Include="Resources\Icons\type_dragon.png" />
+    <Resource Include="Resources\Icons\type_eau.png" />
+    <Resource Include="Resources\Icons\type_electrik.png" />
+    <Resource Include="Resources\Icons\type_fee.png" />
+    <Resource Include="Resources\Icons\type_feu.png" />
+    <Resource Include="Resources\Icons\type_glace.png" />
+    <Resource Include="Resources\Icons\type_insecte.png" />
+    <Resource Include="Resources\Icons\type_normal.png" />
+    <Resource Include="Resources\Icons\type_plante.png" />
+    <Resource Include="Resources\Icons\type_poison.png" />
+    <Resource Include="Resources\Icons\type_psy.png" />
+    <Resource Include="Resources\Icons\type_roche.png" />
+    <Resource Include="Resources\Icons\type_sol.png" />
+    <Resource Include="Resources\Icons\type_spectre.png" />
+    <Resource Include="Resources\Icons\type_ténèbres.png" />
+    <Resource Include="Resources\Icons\type_vol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PokHelper.Objects\PokHelper.Objects.csproj">
+      <Project>{036003c3-11b4-40ea-b2f2-bf5ac895c6e8}</Project>
+      <Name>PokHelper.Objects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

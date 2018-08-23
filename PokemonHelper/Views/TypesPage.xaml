@@ -1,0 +1,107 @@
+﻿<Page x:Class="PokemonHelper.Views.TypesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PokemonHelper.Views"
+      xmlns:conv="clr-namespace:PokemonHelper.Converters"
+      mc:Ignorable="d" 
+      Title="Pokemon vulnerabilities by elements" Height="350" Width="525" Loaded="Window_Loaded">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Resources>
+                <!--Converters-->
+                <conv:StringToVisibilityConverter x:Key="myStringToVisibilityConverter"/>
+                <conv:EnumToImageConverter x:Key="myEnumToImageConverter"/>
+                <conv:ListCountToVisibilityConverter x:Key="myListCountToVisibilityConverter"/>
+            </Grid.Resources>
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Super Vulnerable -->
+            <!--<Label Content="Super vulnerable to :" HorizontalAlignment="Right" Visibility="{Binding ElementName=icSuperVulnerable , Path=Visibility }"  FontSize="20"/>
+            <ItemsControl Name="icSuperVulnerable" 
+                          Style="{StaticResource IC_ELEMENTS}"
+                          Visibility="{Binding SuperVulnerableToElements, Converter={StaticResource ResourceKey=myListCountToVisibilityConverter } , ConverterParameter=Collapsed }"
+                          ItemsSource="{Binding SuperVulnerableToElements}"
+                          Grid.Row="0" Grid.Column="1" >
+            </ItemsControl>-->
+
+            <!-- Vulnerable -->
+            <GroupBox  Grid.Row="1"  
+                      Visibility="{Binding ElementName=icVulnerable , Path= Visibility}"   
+                       Background="{StaticResource VulnerableColor}"
+                      >
+                <GroupBox.Header>
+                    <Label Content="Vulnerabilities" Style="{StaticResource LBL_HEADER}" Background="{StaticResource VulnerableColor}"/>
+                </GroupBox.Header>
+                <ItemsControl Name="icVulnerable" 
+                          Style="{StaticResource IC_ELEMENTS}"
+                          Visibility="{Binding VulnerableToElements, Converter={StaticResource ResourceKey=myListCountToVisibilityConverter } , ConverterParameter=Collapsed }"
+                          ItemsSource="{Binding VulnerableToElements}">
+                </ItemsControl>
+            </GroupBox>
+
+
+            <!-- Resistant -->
+            <GroupBox Grid.Row="2"  
+                      Visibility="{Binding ElementName=icResistant , Path=Visibility}" 
+                      Background="{StaticResource ResistanceColor}">
+                <GroupBox.Header>
+                    <Label Content="Resistance" FontWeight="Bold" Style="{StaticResource LBL_HEADER}" Background="{StaticResource ResistanceColor}"/>
+                </GroupBox.Header>
+                <ItemsControl Name="icResistant" 
+                          Style="{StaticResource IC_ELEMENTS}"
+                          Visibility="{Binding ResistantToElements, Converter={StaticResource ResourceKey=myListCountToVisibilityConverter } , ConverterParameter=Collapsed }"
+                          ItemsSource="{Binding ResistantToElements}">
+                </ItemsControl>
+            </GroupBox>
+
+            <!-- Super resistant  -->
+            <GroupBox Grid.Row="3" 
+                      Visibility="{Binding ElementName=icSuperResistant , Path=Visibility }" 
+                      Background="{StaticResource XtraResistanceColor}">
+                <GroupBox.Header>
+                    <Label Content="Extreme resistance" Style="{StaticResource LBL_HEADER}" Background="{StaticResource XtraResistanceColor}"/>
+                </GroupBox.Header>
+                <ItemsControl Name="icSuperResistant"
+                          Style="{StaticResource IC_ELEMENTS}"
+                          Visibility="{Binding SuperResistantToElements, Converter={StaticResource ResourceKey=myListCountToVisibilityConverter } , ConverterParameter=Collapsed }"
+                          ItemsSource="{Binding SuperResistantToElements}">
+                </ItemsControl>
+            </GroupBox>
+
+
+            <!-- Immunisé -->
+            <GroupBox Grid.Row="4" 
+                      Visibility="{Binding ElementName=icImmune, Path=Visibility }" 
+                      Background="{StaticResource ImmuneColor}">
+                <GroupBox.Header>
+                    <Label Content="Immunities" FontWeight="Bold" Style="{StaticResource LBL_HEADER}" Background="{StaticResource ImmuneColor}"/>
+                </GroupBox.Header>
+                <ItemsControl Name="icImmune" 
+                          Style="{StaticResource IC_ELEMENTS}"
+                          Visibility="{Binding ImmuneToElements, Converter={StaticResource ResourceKey=myListCountToVisibilityConverter } , ConverterParameter=Collapsed }"
+                          ItemsSource="{Binding ImmuneToElements}"
+                          >
+                </ItemsControl>
+            </GroupBox>
+
+        </Grid>
+
+
+        <ComboBox Style="{StaticResource ComboEditable}" DisplayMemberPath="Name" x:Name="cbxPokemons"  Grid.Row="1" />
+    </Grid>
+</Page>

@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PokemonHelper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="PokemonHelper" Height="600" Width="600">
     <Grid>
-        
+        <Menu  VerticalAlignment="Top" >
+            <MenuItem Header="_Team">
+                <MenuItem Header="Acces aux Equipes" x:Name="btnAccessTeam" />
+            </MenuItem>
+            <MenuItem Header="_Types">
+                <MenuItem Header="Acces aux Participants" x:Name="btnAccessTypes" />
+            </MenuItem>
+        </Menu>
+
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0,35,0,0"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokemonHelper.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace PokemonHelper
         public MainWindow()
         {
             InitializeComponent();
+            AddHandlers();
+        }
+
+        private void AddHandlers()
+        {
+            btnAccessTypes.Click += (_,__) => Main.Content = new TypesPage();
+           // btnAccessTeam.Click += (_,__) => Main.Content = new TeamPage();
         }
     }
 }
